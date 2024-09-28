@@ -1,0 +1,23 @@
+.container{
+    width:80%;
+    height:80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box{
+    width:5vw;
+    height: 5vh;
+    text-align: center;
+    font-size: larger;
+    background-color: #f0f0f0;
+    margin: 1%;
+    padding: 3% 2%;
+    border-radius: 15px;
+}
+.center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

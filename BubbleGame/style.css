@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.Headding{
+    font-size: 3rem;
+    margin-top: 1%;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+}
+
+.GameBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #610f0f;
+    margin-left: 20%;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 1000px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ScoreBoard {
+    background-color: #b23030;
+    color: beige;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ScoreBoard div {
+    text-align: center;
+}
+
+.SearchNumberBox,
+.TimerBox,
+.TotalScoreBox {
+    font-size: 1.2rem;
+    display: flex;
+}
+
+.CreateGame {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+.my-class {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    background-color: aqua;
+    color: #333;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    margin: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.my-class:hover {
+    transform: scale(1.1);
+    background-color: #00ced1;
+}
