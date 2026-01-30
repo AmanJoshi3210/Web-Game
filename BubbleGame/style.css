@@ -1,80 +1,93 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
 }
-.Headding{
-    font-size: 3rem;
-    margin-top: 1%;
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
 }
+
+.glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f3f3f3;
+    background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+    overflow-x: hidden;
 }
 
-.GameBox {
+/* Custom Scrollbar for the bubble container if needed */
+#bubble-grid::-webkit-scrollbar {
+    width: 6px;
+}
+#bubble-grid::-webkit-scrollbar-track {
+    background: transparent;
+}
+#bubble-grid::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.bubble {
+    width: 64px;
+    height: 64px;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    align-items: center;
-    background: #610f0f;
-    margin-left: 20%;
-    padding: 2rem;
-    border-radius: 12px;
-    max-width: 1000px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.ScoreBoard {
-    background-color: #b23030;
-    color: beige;
-    width: 100%;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-bottom: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.ScoreBoard div {
-    text-align: center;
-}
-
-.SearchNumberBox,
-.TimerBox,
-.TotalScoreBox {
-    font-size: 1.2rem;
-    display: flex;
-}
-
-.CreateGame {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    gap: 10px;
-    justify-items: center;
-    align-items: center;
-    width: 100%;
-    padding: 1rem;
-}
-
-.my-class {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1rem;
-    background-color: aqua;
-    color: #333;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    margin: 10px;
+    border-radius: 9999px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     cursor: pointer;
-    transition: transform 0.2s ease-in-out;
+    user-select: none;
 }
 
-.my-class:hover {
-    transform: scale(1.1);
-    background-color: #00ced1;
+@media (max-width: 640px) {
+    .bubble {
+        width: 52px;
+        height: 52px;
+        font-size: 1.1rem;
+    }
+}
+
+.bubble:hover {
+    transform: scale(1.15);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.bubble:active {
+    transform: scale(0.95);
+}
+
+.bubble.correct {
+    background: #3b82f6;
+    border-color: #93c5fd;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+}
+
+/* Animations for screen transitions */
+.fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.pop-animation {
+    animation: pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes pop {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
 }
